@@ -35,3 +35,9 @@ steps:
   inputs:
     artifactName: 'war'
     pathToPublish: '$(build.artifactStagingDirectory)'
+
+- task: AzureRmWebAppDeployment@3
+  inputs:
+    azureSubscription: 'AzureDemo'
+    WebAppName: 'azuredemoapp'
+    Package: '$(System.DefaultWorkingDirectory)/**/*.war'
